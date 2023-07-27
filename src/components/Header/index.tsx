@@ -8,7 +8,6 @@ import Row from '../Row'
 import Menu from '../Menu'
 import Web3Status from '../Web3Status'
 
-import { Link } from '../../theme'
 import { Text } from 'rebass'
 import { WETH, ChainId } from '@uniswap/sdk'
 import { isMobile } from 'react-device-detect'
@@ -20,7 +19,6 @@ import Logo from '../../assets/images/logo-light.png'
 import Wordmark from '../../assets/images/logo-text-light.png'
 import LogoDark from '../../assets/images/logo.png'
 import WordmarkDark from '../../assets/images/logo-text.png'
-import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 
 const HeaderFrame = styled.div`
@@ -102,52 +100,6 @@ const UniIcon = styled(HistoryLink)<{ to: string }>`
   }
 `
 
-const MigrateBanner = styled(AutoColumn)`
-  width: 100%;
-  padding: 12px 0;
-  display: flex;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.primary5};
-  color: ${({ theme }) => theme.primaryText1};
-  font-weight: 400;
-  text-align: center;
-  pointer-events: auto;
-  a {
-    color: ${({ theme }) => theme.primaryText1};
-  }
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: 0;
-    display: none;
-  `};
-`
-
-const VersionLabel = styled.span<{ isV2?: boolean }>`
-  padding: ${({ isV2 }) => (isV2 ? '0.15rem 0.5rem 0.16rem 0.45rem' : '0.15rem 0.5rem 0.16rem 0.35rem')};
-  border-radius: 14px;
-  background: ${({ theme, isV2 }) => (isV2 ? theme.primary1 : 'none')};
-  color: ${({ theme, isV2 }) => (isV2 ? theme.white : theme.primary1)};
-  font-size: 0.825rem;
-  font-weight: 400;
-  :hover {
-    user-select: ${({ isV2 }) => (isV2 ? 'none' : 'initial')};
-    background: ${({ theme, isV2 }) => (isV2 ? theme.primary1 : 'none')};
-    color: ${({ theme, isV2 }) => (isV2 ? theme.white : theme.primary3)};
-  }
-`
-
-const VersionToggle = styled.a`
-  border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.primary1};
-  color: ${({ theme }) => theme.primary1};
-  display: flex;
-  width: fit-content;
-  cursor: pointer;
-  text-decoration: none;
-  :hover {
-    text-decoration: none;
-  }
-`
 
 export default function Header() {
   const { account, chainId } = useActiveWeb3React()
