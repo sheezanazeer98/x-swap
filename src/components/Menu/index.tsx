@@ -73,10 +73,6 @@ const MenuItem = styled(Link)`
   }
 `
 
-const CODE_LINK = !!process.env.REACT_APP_GIT_COMMIT_HASH
-  ? `https://github.com/Uniswap/uniswap-frontend/tree/${process.env.REACT_APP_GIT_COMMIT_HASH}`
-  : 'https://github.com/Uniswap/uniswap-frontend'
-
 export default function Menu() {
   const node = useRef<HTMLDivElement>()
   const [open, toggle] = useToggle(false)
@@ -107,17 +103,11 @@ export default function Menu() {
       </StyledMenuButton>
       {open ? (
         <MenuFlyout>
-          <MenuItem id="link" href="https://uniswap.org/">
+          <MenuItem id="link" href="https://x-protocol-1.gitbook.io/x-protocol/">
             About
           </MenuItem>
-          <MenuItem id="link" href="https://uniswap.org/docs/v2">
+          <MenuItem id="link" href="https://x-protocol-1.gitbook.io/x-protocol/overview/x-protocol-features">
             Docs
-          </MenuItem>
-          <MenuItem id="link" href={CODE_LINK}>
-            Code
-          </MenuItem>
-          <MenuItem id="link" href="https://uniswap.info/">
-            Analytics
           </MenuItem>
         </MenuFlyout>
       ) : (
